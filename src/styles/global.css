@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #f4efe6;
+    color: #1f1d1a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Subtle grain texture overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    opacity: 0.025;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 256px 256px;
+  }
+
+  /* Smooth focus rings */
+  *:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #f4efe6, 0 0 0 4px rgba(212, 85, 42, 0.4);
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: #f9c3aa;
+    color: #1f1d1a;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d1c9ba;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #b5ad9e;
+  }
+}
+
+@layer components {
+  /* Warm card surfaces */
+  .card-surface {
+    background-color: #fffef9;
+    border-radius: 1rem;
+    border: 1px solid #e6dfd4;
+    box-shadow: 0 1px 3px rgba(140, 120, 90, 0.06), 0 1px 2px rgba(140, 120, 90, 0.04);
+  }
+
+  .card-surface:hover {
+    box-shadow: 0 4px 12px rgba(140, 120, 90, 0.1), 0 2px 4px rgba(140, 120, 90, 0.06);
+  }
+
+  /* Warm code blocks */
+  code {
+    font-size: 0.875rem;
+    background-color: #fdfaf2;
+    color: #99361c;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  /* Prose links */
+  .prose a {
+    color: #d4552a;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: #f9c3aa;
+    transition: color 0.15s, text-decoration-color 0.15s;
+  }
+
+  .prose a:hover {
+    color: #b94420;
+    text-decoration-color: #e8683b;
+  }
+}
+
+@layer utilities {
+  /* Entrance animations */
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.5s ease-out both;
+  }
+}

@@ -1,0 +1,26 @@
+# countTokens — Free LLM Token Counter
+
+> A free, privacy-first tool for counting tokens across 21 AI models from Anthropic, OpenAI, Google, Mistral, Meta, HuggingFace, and xAI. All processing happens client-side in your browser — your text never leaves your device.
+
+## Main Tool
+- [Token Counter](https://counttokens.pages.dev): Count tokens for any LLM model instantly. Supports 21 models across 7 vendors.
+
+## Supported Models
+- **Anthropic**: Claude Opus 4.6 (approx), Claude Sonnet 4.6 (approx), Claude Haiku 4.5 (approx)
+- **OpenAI**: GPT-5.4 Pro (exact), GPT-5.4 Thinking (exact), GPT-5.3 Instant (exact)
+- **Google**: Gemini 3.1 Pro (estimate), Gemini 3.1 Flash-Lite (estimate), Gemini 3.1 Deep Think (estimate)
+- **Mistral**: Mistral Large 3 (approx), Ministral 14B (approx), Ministral 8B (approx)
+- **Meta**: Llama 4 Scout (approx), Llama 4 Maverick (approx), Llama 3.1 405B (approx)
+- **HuggingFace**: DeepSeek R1 (approx), Qwen 2.5 (approx), SmolLM2 (approx)
+- **xAI**: Grok-4.1 Fast (approx), Grok-4.1 (approx), Grok-4 Heavy (approx)
+
+## Key Facts
+- 1,000 English words ≈ 1,300–1,500 tokens (varies by model)
+- OpenAI models use o200k_base encoding (exact counts)
+- Other models use cl100k_base BPE approximation
+- Gemini uses cl100k_base × 0.85 multiplier (SentencePiece 256K vocab)
+- All counting runs 100% client-side in JavaScript
+- File upload supports .txt and .md (read locally via FileReader API)
+
+## Pages
+- [Privacy Policy](https://counttokens.pages.dev/privacy): Zero data collection policy. All processing is client-side.

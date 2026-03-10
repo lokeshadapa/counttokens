@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+}
+
+const { title, description, canonicalUrl } = Astro.props;
+const siteUrl = 'https://counttokens.pages.dev';
+const fullCanonical = canonicalUrl || siteUrl + Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={fullCanonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={fullCanonical} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <title>{title}</title>
+
+    <!-- Sora + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "countTokens",
+      "description": "Free online token counter for LLM models including Claude Opus 4.6, GPT-5.4 Pro, Gemini 3.1, Llama 4, and more. 100% client-side, private, no sign-up.",
+      "url": siteUrl,
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires JavaScript",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Token counting for 21 models across 7 vendors: Anthropic, OpenAI, Google, Mistral, Meta, HuggingFace, xAI",
+        "Supports Claude Opus 4.6, Sonnet 4.6, Haiku 4.5, GPT-5.4 Pro, Gemini 3.1, Llama 4, and more",
+        "100% client-side processing — text never leaves your browser",
+        "File upload support for .txt and .md files",
+        "No sign-up required",
+        "Real-time token counting as you type"
+      ]
+    })} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="border-b border-parchment-300/60">
+      <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="/" class="group">
+          <span class="font-bold text-parchment-900 text-lg tracking-tight group-hover:text-sienna-600 transition-colors">countTokens</span>
+        </a>
+        <a href="https://github.com/anthropics/counttokens/discussions" class="text-xs text-parchment-500 hover:text-parchment-800 transition-colors">Feature Requests</a>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-parchment-300/60 mt-20">
+      <div class="max-w-3xl mx-auto px-4 py-8">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-parchment-500">
+          <div class="flex items-center gap-4">
+            <a href="/privacy" class="hover:text-parchment-800 transition-colors">Privacy</a>
+            <span class="text-parchment-400">·</span>
+            <span>No cookies. No tracking. No data collection.</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/anthropics/counttokens/discussions" class="hover:text-parchment-800 transition-colors">Feature Requests</a>
+            <span class="text-parchment-400">·</span>
+            <span>Open source on <a href="https://github.com" class="hover:text-parchment-800 underline underline-offset-2 transition-colors">GitHub</a></span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Calculator from '../components/Calculator.tsx';
+import { models, faqItems } from '../lib/models';
+---
+
+<Layout
+  title="countTokens — Free Token Counter for Claude, GPT-5, Gemini, Llama & More"
+  description="Count tokens instantly for 21 AI models across Anthropic, OpenAI, Google, Meta, and more. Free, private, no sign-up. All processing happens in your browser."
+>
+  <div class="max-w-3xl mx-auto px-4 py-8">
+    <!-- Hero -->
+    <div class="mb-8 animate-fade-up">
+      <h1 class="text-3xl md:text-4xl font-extrabold text-parchment-900 tracking-tight leading-tight">
+        Count tokens for any AI model
+      </h1>
+    </div>
+
+    <!-- Calculator -->
+    <div class="animate-fade-up" style="animation-delay: 100ms;">
+      <Calculator client:load />
+    </div>
+
+    <!-- What Are Tokens -->
+    <section class="mt-24 animate-fade-up" style="animation-delay: 200ms;">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1 h-6 bg-sienna-400 rounded-full"></div>
+        <h2 class="text-2xl font-bold text-parchment-900 tracking-tight">What Are Tokens?</h2>
+      </div>
+      <div class="space-y-4 text-sm text-parchment-700 leading-relaxed pl-5">
+        <p>
+          Tokens are the fundamental units that AI language models use to process text. When you send a prompt to
+          ChatGPT, Claude, or any other LLM, your text is first broken down into tokens before the model can understand it.
+        </p>
+        <p>
+          A token can be as short as one character or as long as one word. For example, the word <code>"hamburger"</code> gets split into
+          <code>"ham"</code>, <code>"bur"</code>, and <code>"ger"</code> &mdash; that's 3 tokens.
+          Common words like <code>"the"</code> are typically a single token.
+        </p>
+        <p>
+          Understanding token counts matters because AI providers charge based on tokens, and every model has a maximum
+          context window (the total tokens it can process at once). Knowing your token count helps you optimize prompts,
+          estimate costs, and stay within model limits.
+        </p>
+      </div>
+    </section>
+
+    <!-- Model Comparison Table -->
+    <section class="mt-20">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1 h-6 bg-sienna-400 rounded-full"></div>
+        <h2 class="text-2xl font-bold text-parchment-900 tracking-tight">Model Comparison</h2>
+      </div>
+      <p class="text-parchment-600 text-sm mb-6 pl-5">
+        Different models use different tokenizers, which means the same text produces different token counts.
+      </p>
+      <div class="overflow-x-auto -mx-4 px-4">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 border-parchment-300">
+              <th class="text-left py-3 px-3 font-semibold text-parchment-900 text-xs uppercase tracking-wider">Model</th>
+              <th class="text-left py-3 px-3 font-semibold text-parchment-900 text-xs uppercase tracking-wider">Provider</th>
+              <th class="text-left py-3 px-3 font-semibold text-parchment-900 text-xs uppercase tracking-wider">Vocab</th>
+              <th class="text-left py-3 px-3 font-semibold text-parchment-900 text-xs uppercase tracking-wider">Context</th>
+              <th class="text-left py-3 px-3 font-semibold text-parchment-900 text-xs uppercase tracking-wider">Accuracy</th>
+            </tr>
+          </thead>
+          <tbody>
+            {models.map((model, i) => (
+              <tr class={`border-b border-parchment-300/50 transition-colors hover:bg-parchment-100/50 ${i % 2 === 0 ? 'bg-parchment-50/30' : ''}`}>
+                <td class="py-3 px-3 font-medium text-parchment-900">{model.name}</td>
+                <td class="py-3 px-3 text-parchment-600">{model.provider}</td>
+                <td class="py-3 px-3 font-mono text-parchment-600 text-xs">{model.vocabSize}</td>
+                <td class="py-3 px-3 font-mono text-parchment-600 text-xs">{model.contextWindow}</td>
+                <td class="py-3 px-3">
+                  <span class={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                    model.accuracy === 'exact'
+                      ? 'bg-sage-50 text-sage-700'
+                      : model.accuracy === 'approximate'
+                        ? 'bg-amber-50 text-amber-700'
+                        : 'bg-sienna-50 text-sienna-700'
+                  }`}>
+                    {model.accuracy === 'exact' ? 'Exact' : model.accuracy === 'approximate' ? 'Approx' : 'Estimate'}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mt-20">
+      <div class="flex items-center gap-3 mb-6">
+        <div class="w-1 h-6 bg-sienna-400 rounded-full"></div>
+        <h2 class="text-2xl font-bold text-parchment-900 tracking-tight">Frequently Asked Questions</h2>
+      </div>
+      <div class="space-y-3 pl-5">
+        {faqItems.map((item) => (
+          <details class="group card-surface overflow-hidden">
+            <summary class="cursor-pointer px-5 py-4 text-sm font-semibold text-parchment-900 list-none flex items-center justify-between hover:bg-parchment-100/50 transition-colors">
+              {item.question}
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-parchment-400 transition-transform duration-200 group-open:rotate-180 flex-shrink-0 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </summary>
+            <div class="px-5 pb-4 border-t border-parchment-200">
+              <p class="text-sm text-parchment-600 leading-relaxed pt-3">{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+
+      <!-- FAQ JSON-LD -->
+      <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqItems.map((item) => ({
+          "@type": "Question",
+          "name": item.question,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": item.answer,
+          },
+        })),
+      })} />
+    </section>
+  </div>
+</Layout>

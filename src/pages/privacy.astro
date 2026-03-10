@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy — countTokens"
+  description="countTokens privacy policy. We collect zero data. All token counting happens in your browser."
+>
+  <div class="max-w-3xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-extrabold text-parchment-900 tracking-tight mb-8">Privacy Policy</h1>
+
+    <div class="space-y-8 text-sm text-parchment-700 leading-relaxed">
+      <div class="bg-sage-50 border border-sage-500/20 rounded-2xl p-6">
+        <p class="text-sage-700 font-bold text-base mb-2">The short version</p>
+        <p class="text-sage-600">
+          We don't collect, store, or transmit any of your text. Period. All token counting
+          happens entirely in your browser using JavaScript. Your text never leaves your device.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-parchment-900 mb-3">What we don't collect</h2>
+        <ul class="space-y-2 pl-1">
+          <li><strong class="text-parchment-900">Your text:</strong> The text you paste, type, or upload via file is processed entirely client-side. It is never sent to any server.</li>
+          <li><strong class="text-parchment-900">Uploaded files:</strong> Files you drop or upload (.txt, .md) are read directly in your browser using the FileReader API. No file data is ever transmitted.</li>
+          <li><strong class="text-parchment-900">Cookies:</strong> We use no cookies of any kind — no session cookies, no tracking cookies, nothing.</li>
+          <li><strong class="text-parchment-900">Analytics:</strong> We don't use Google Analytics, Mixpanel, Hotjar, or any analytics platform that tracks user behavior.</li>
+          <li><strong class="text-parchment-900">Personal data:</strong> We don't collect names, emails, IP addresses, or any personally identifiable information.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-parchment-900 mb-3">How it works technically</h2>
+        <p class="mb-3">
+          countTokens is a <strong class="text-parchment-900">static website</strong> — it consists only of HTML, CSS, and JavaScript files served from a CDN. There is no backend server, no database, no API that processes your text.
+        </p>
+        <p class="mb-3">
+          The tokenization libraries (which convert text to tokens) are bundled directly into the JavaScript that runs in your browser. When you type text, the counting happens in real-time on your device using these bundled libraries.
+        </p>
+        <p>
+          We use a strict <strong class="text-parchment-900">Content Security Policy</strong> that restricts outbound network requests, providing an additional architectural guarantee that your text cannot be transmitted.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-parchment-900 mb-3">How to verify</h2>
+        <p class="mb-3">
+          Don't trust us — verify for yourself:
+        </p>
+        <ol class="space-y-2 list-decimal list-inside">
+          <li>Open your browser's Developer Tools (press <code>F12</code> or <code>Cmd+Opt+I</code>)</li>
+          <li>Go to the <strong class="text-parchment-900">Network</strong> tab</li>
+          <li>Clear the existing requests</li>
+          <li>Type or paste text into the calculator</li>
+          <li>Observe that <strong class="text-parchment-900">zero network requests</strong> are made</li>
+        </ol>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-parchment-900 mb-3">Local storage</h2>
+        <p>
+          countTokens does not use localStorage or any local storage mechanism. No data persists between sessions.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-parchment-900 mb-3">Hosting provider</h2>
+        <p>
+          This site is hosted on <strong class="text-parchment-900">Cloudflare Pages</strong>. Like all web servers, Cloudflare may log standard access information (IP address, timestamp, page requested) as part of their infrastructure. We do not access, use, or control these logs. See <a href="https://www.cloudflare.com/privacypolicy/" class="text-sienna-500 hover:text-sienna-600 underline underline-offset-2 decoration-sienna-300" target="_blank" rel="noopener noreferrer">Cloudflare's Privacy Policy</a> for details.
+        </p>
+      </div>
+
+      <div>
+        <h2 class="text-xl font-bold text-parchment-900 mb-3">Open source</h2>
+        <p>
+          This website is open source. You can review the complete source code to verify all claims made in this privacy policy.
+        </p>
+      </div>
+
+      <hr class="border-parchment-300" />
+
+      <p class="text-xs text-parchment-500">
+        Last updated: March 2026
+      </p>
+    </div>
+  </div>
+</Layout>
