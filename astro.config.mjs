@@ -5,5 +5,5 @@ import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
   integrations: [preact(), tailwind()],
-  site: 'https://counttokens.pages.dev',
+  site: 'https://counttokens.lokeshadapa.com',
 });

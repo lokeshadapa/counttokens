@@ -3,7 +3,7 @@
 > A free, privacy-first tool for counting tokens across 21 AI models from Anthropic, OpenAI, Google, Mistral, Meta, HuggingFace, and xAI. All processing happens client-side in your browser — your text never leaves your device.
 
 ## Main Tool
-- [Token Counter](https://counttokens.pages.dev): Count tokens for any LLM model instantly. Supports 21 models across 7 vendors.
+- [Token Counter](https://counttokens.lokeshadapa.com): Count tokens for any LLM model instantly. Supports 21 models across 7 vendors.
 
 ## Supported Models
 - **Anthropic**: Claude Opus 4.6 (approx), Claude Sonnet 4.6 (approx), Claude Haiku 4.5 (approx)
@@ -23,4 +23,4 @@
 - File upload supports .txt and .md (read locally via FileReader API)
 
 ## Pages
-- [Privacy Policy](https://counttokens.pages.dev/privacy): Zero data collection policy. All processing is client-side.
+- [Privacy Policy](https://counttokens.lokeshadapa.com/privacy): Zero data collection policy. All processing is client-side.

@@ -2,7 +2,7 @@
 
 Free, privacy-first token counter for LLM models. Paste your text, pick a model, get the count. No sign-up, no tracking, no data leaves your browser.
 
-**Live:** [counttokens.pages.dev](https://counttokens.pages.dev)
+**Live:** [counttokens.lokeshadapa.com](https://counttokens.lokeshadapa.com)
 
 ## Supported models
 
