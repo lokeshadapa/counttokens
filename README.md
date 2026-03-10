@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# countTokens
+
+Free, privacy-first token counter for LLM models. Paste your text, pick a model, get the count. No sign-up, no tracking, no data leaves your browser.
+
+**Live:** [counttokens.pages.dev](https://counttokens.pages.dev)
+
+## Supported models
+
+21 models across 7 providers:
+
+- **Anthropic** — Claude Opus 4.6, Sonnet 4.6, Haiku 4.5
+- **OpenAI** — GPT-5.4 Pro, GPT-5.4 Thinking, GPT-5.3 Instant
+- **Google** — Gemini 3.1 Pro, Flash-Lite, Deep Think
+- **Mistral** — Mistral Large 3, Ministral 14B, Ministral 8B
+- **Meta** — Llama 4 Scout, Llama 4 Maverick, Llama 3.1 405B
+- **HuggingFace** — DeepSeek R1, Qwen 2.5, SmolLM2
+- **xAI** — Grok-4.1 Fast, Grok-4.1, Grok-4 Heavy
+
+## Privacy
+
+All tokenization happens client-side using bundled JavaScript libraries. Your text never leaves the browser. No cookies, no analytics, no backend.
+
+## Run locally
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tech stack
 
-## 🚀 Project Structure
+- Astro + Preact
+- Tailwind CSS
+- tiktoken (exact counts for OpenAI models)
+- BPE approximation for other providers
+- Cloudflare Pages
 
-Inside of your Astro project, you'll see the following folders and files:
+## Contributing
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Got ideas? Open a [discussion](https://github.com/lokeshadapa/counttokens/discussions). Found a bug? Open an issue.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## License
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+MIT
